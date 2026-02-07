@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OJTIMS</title>
+    <title>InternConnect</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -25,7 +25,7 @@
                 <li>
                     <a href="#">
                         <img style="width: 55px; margin-left: 6px; padding-top: 30px;" src="/images/puplogo.png">
-                        <span class="toptitle">OJTIMS</span>
+                        <span class="toptitle">InternConnect</span>
                     </a>
 
                     <a href="#">
@@ -112,7 +112,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <span class="subtitle">On-the-Job Training Information Management System </span>
+                <span class="subtitle">InternConnect: OJT Training Information Management System </span>
 
             </div>
 

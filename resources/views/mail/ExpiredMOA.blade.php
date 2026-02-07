@@ -94,7 +94,7 @@
     <!-- Header Section -->
     <div class="header">
         
-        <h1 style="font-size: 24px; margin-top: 10px;">Welcome to the On-the-job Training Information Management System</h1>
+        <h1 style="font-size: 24px; margin-top: 10px;">Welcome to InternConnect: OJT Information Management System</h1>
     </div>
 
     <!-- Content Section -->

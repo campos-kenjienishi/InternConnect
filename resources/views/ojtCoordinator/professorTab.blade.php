@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OJTIMS-PUPT</title>
+    <title>InternConnect</title>
     <link rel="shortcut icon" href="/images/final-puptg_logo-ojtims_nbg.png" type="image/png"> 
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -24,7 +24,7 @@
                 <li>
                     <a href="#">
                         <img src="/images/final-puptg_logo-ojtims_nbg.png">
-                        <span class="toptitle">OJTIMS</span>
+                        <span class="toptitle">InternConnect</span>
                     </a>
 
   
@@ -137,7 +137,7 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <span class="subtitle">On-the-Job Training Information Management System </span>
+                <span class="subtitle">InternConnect: OJT Training Information Management System </span>
                 
             </div>
 

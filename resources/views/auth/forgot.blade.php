@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/frontend/css/custom.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OJTIMS-PUPT</title>
+    <title>InternConnect</title>
     <link rel="shortcut icon" href="/images/final-puptg_logo-ojtims_nbg.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
                 <!-- <h2>On-<span>t</span>he-<span>j</span>ob<span> T</span>raining<span> I</span>nformation<span> M</span>anagement<span> S</span>ystem</h2> -->
-                <h2>ON-THE-JOB TRAINING <br> INFORMATION MANAGEMENT SYSTEM</h2>
+                <h2>InternConnect <br>OJT INFORMATION MANAGEMENT SYSTEM</h2>
                 <h4>Reset Password</h4>
 
                 <form action="{{url('/forgotPass')}}" method="post">
