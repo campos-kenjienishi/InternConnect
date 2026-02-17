@@ -409,10 +409,9 @@
                                       data-first-name="{{ $usersP->where('email', $professor->email)->first()->first_name }}"
                                       data-last-name="{{ $usersP->where('email', $professor->email)->first()->last_name }}"
                                       data-bs-toggle="modal" data-bs-target="#editProfessorModal">Edit</button>
-
-
-
-                                        <!-- Modal for editing professor details -->
+                                    </td>
+                                </tr>
+<!-- Modal for editing professor details -->
 <div class="modal fade" id="editProfessorModal" tabindex="-1" aria-labelledby="editProfessorModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
