@@ -26,7 +26,7 @@
                 <li>
                     <a href="#">
                         <img src="/images/final-puptg_logo-ojtims_nbg.png">
-                        <span class="toptitle">OJTIMS</span>
+                        <span class="toptitle">Intern<br><br>Connect</span>
                     </a>
 
                 </li>

@@ -40,40 +40,33 @@ body {
   width: 100%;
 }
 
-/* .background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/images/PUPTbg1.jpg');
-  background-size: cover;
-}
-
-.background-container {
-  z-index: -1; 
-} */
-
 /* =============== Navigation ================ */
 .navigation {
   position: fixed;
-  width: 19%;
+  width: 240px; 
   height: 100%;
   background: var(--maroon);
-  border-left: 10px solid var(--maroon);
-  border-right: 10px solid var(--maroon);
-  transition: 0.10s;
-  overflow: hidden;
+  transition: 0.3s;
+  overflow: hidden; /* Stops text leaking when shrunken */
+  z-index: 1000;
 }
 
 .navigation.active {
-  width: 5%; /* Adjusted width when active for smaller screens */
+  width: 70px; 
+}
+
+/* THE FIX: Remove text elements entirely when sidebar is shrunken to prevent ghosting */
+.navigation.active .toptitle,
+.navigation.active .name,
+.navigation.active .name2,
+.navigation.active .title,
+.navigation.active .titlesub,
+.navigation.active .role {
+  display: none !important;
 }
 
 .navigation ul {
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -81,9 +74,9 @@ body {
   position: relative;
   width: 100%;
   list-style: none;
-  border-radius: 30px; /* Border radius in percentage for all sides */
-  margin-top: 5px;
-  margin-bottom: 5px;
+  border-top-left-radius: 20px; 
+  border-bottom-left-radius: 20px;
+  margin: 2px 0;
 }
 
 .navigation ul li:hover,
@@ -92,17 +85,17 @@ body {
 }
 
 .navigation ul li:nth-child(1) {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   pointer-events: none;
 }
 
 .navigation ul li a {
-  position: relative;
-  display: block;
-  width: 100%;
   display: flex;
+  align-items: center;
+  width: 100%;
   text-decoration: none;
   color: var(--gray);
+  height: 45px;
 }
 
 .navigation ul li:hover a,
@@ -110,73 +103,42 @@ body {
   color: var(--maroon);
 }
 
+/* Icons */
 .navigation ul li a .icon {
-  position: relative;
-  display: block;
   min-width: 60px;
-  height: 30px;
-  line-height: 55px;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation.active ul li a .icon {
+  min-width: 70px; /* Perfectly centers icon in shrunken bar */
 }
 
 .navigation ul li a .icon ion-icon {
-  font-size: 1.75rem;
+  font-size: 1.2rem;
 }
 
 .navigation ul li a .title {
-  position: relative;
-  display: block;
-  padding: 0 5px;
-  height: 40px;
-  line-height: 40px;
-  text-align: start;
+  padding: 0 10px;
   white-space: nowrap;
   font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 100%;
-  /* margin-left: 5%;  */
-  margin-left: 14%;
+  font-size: 0.85rem;
 }
 
-.navigation ul li a .titlesub {
-  position: relative;
-  display: block;
-  padding: 0 5px;
-  height: 40px;
-  line-height: 40px;
-  text-align: start;
-  white-space: nowrap;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  font-size: 100%;
-  /* margin-left: 5%;  */
-  margin-left: 14%;
-
-  margin-left: 110px; 
-  margin-top: -10px; 
-  margin-bottom: 10px; 
-  padding: 10px; 
-  width: 78%; 
-  white-space: nowrap;
-}
-
-img { 
-
-  /* style="width: 55px; margin-left: 6px; padding-top: 30px;" */
-
-  /* display: flex; */
+/* --- Branding/Logo --- */
+.navigation img { 
   height: 80px;
   width: 50px;
   padding-top: 30px;
   margin-left: 8px; 
   margin-right: 10px;  
-  
 }
 
 .navigation ul li a .toptitle {
   position: relative;
   display: block;
-  padding: 2 20px;
   margin-left: 10px;
   padding-top: 50px;
   height: 80px;
@@ -185,76 +147,13 @@ img {
   flex-shrink: 0;
   color: #FFA800;
   text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 35px;
-  font-style: normal;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.navigation ul a .name {
-  position: relative;
-  display: block;
-  flex-shrink: 0;
-  color: var(--white);
-  text-align: center;
-  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: 'Poppins';
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-
-  margin-top: -65px;
-  margin-left: 18%;
-  margin-right: 10%;
-  margin-bottom: 70px;
-  max-width: 100%; /* Adjust as needed */
-}
-
-.navigation ul a .name2 {
-  position: relative;
-  display: block;
-  flex-shrink: 0;
-  color: var(--white);
-  text-align: center;
-  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: 'Poppins';
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-
-  margin-top: -65px;
-  margin-left: 20%;
-  margin-right: 10%;
-  /* margin-top: 3%; */
-  margin-bottom: 80px;
-  max-width: 100%; /* Adjust as needed */
-}
-
-.navigation.active ul a .name2 {
-  margin-left: 100%;
-  white-space: nowrap;
-}
-/* .navigation ul a span .role {
-  margin-left: 2%;
-} */
-
-.navigation ul .hidden-on-big {
-  display: none;
-} 
-
-
-.navigation.active ul a .name {
-  margin-left: 100%;
-  white-space: nowrap;
-}
-
-.navigation.active ul a .role {
-
-  margin-left: 100%;
-  white-space: nowrap;
-}
-
+/* --- User Info Section --- */
 .navigation ul a .iconname {
   position: relative;
   display: block;
@@ -271,117 +170,100 @@ img {
   font-size: 1.55rem;
 }
 
-
-/* --------- curve outside ----------
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: -50px;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px 35px 0 10px var(--gray);
-  pointer-events: none;
-}
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  bottom: -50px;
-  width: 50px;
-  height: 50px;
-  background-color: transparent;
-  border-radius: 50%;
-  box-shadow: 35px -35px 0 10px var(--gray);
-  pointer-events: none;
-} */
-
-/* ===================== Main ===================== */
-/* .main {
-  position: absolute;
-  width: calc(100% - 200px);
-  left: 19%;
-  min-height: 100vh;
-  background-size: cover;
-  transition: 0.5s;
-}
-
-.main.active {
-  width: calc(100% - 70px);
-  left: 70px;
-} */
-
-.main {
-  position: absolute;
-  width: calc(100% - 300px);
-  left: 18%;
-  min-height: 100vh;
-  /* background-image: url('/images/PUPTbg1.jpg'); */
-  background-size: cover;
-  transition: 0.5s;
-}
-.main.active {
-  width: calc(100% - 80px);
-  left: 80px;
-}
-
-.topbar {
-width: 100%;
-height: 100px;
-background: var(--maroon);
-display: flex;
-justify-content: left;
-align-items: center;
-padding: 0 5px;
-}
-
-.subtitle {
+.navigation ul a .name {
   position: relative;
-  display: flex;
-  padding-left: 20px;
-  height: 20px;
-  line-height: 30px;
-  width: 100px;
+  display: block;
   flex-shrink: 0;
   color: var(--white);
-  text-align: left;
-  /* text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  text-align: center;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: 'Poppins';
   font-size: 20px;
-  font-style: normal;
   font-weight: 500;
-  white-space: nowrap;
+  margin-top: -65px;
+  margin-left: 18%;
+  margin-right: 10%;
+  margin-bottom: 70px;
+}
+
+.navigation ul a .name2 {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  color: var(--white);
+  text-align: center;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: -65px;
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-bottom: 80px;
+}
+
+.navigation ul .hidden-on-big {
+  display: none;
+} 
+
+/* =============== Main Container ================ */
+.main {
+  position: absolute;
+  width: calc(100% - 240px);
+  left: 240px;
+  min-height: 100vh;
+  background: #f5f5f5;
+  transition: 0.3s;
+}
+
+/* Shrunken Adjustments */
+.navigation.active ~ .main {
+  width: calc(100% - 70px);
+  left: 70px;
+}
+
+/* =============== Topbar ================ */
+.topbar {
+  width: 100%;
+  height: 60px;
+  background: var(--maroon);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 15px;
 }
 
 .toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.0rem;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
   cursor: pointer;
   color: var(--white);
 }
 
+.subtitle {
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 15px;
+  white-space: nowrap;
+}
+
+/* =============== Dashboard/Content ================ */
 .main .dash {
-  position: relative;
-  display: flex;
   padding: 20px;
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  grid-gap: 20px;
-  flex-wrap: wrap;
-  margin-left: 50px;
+  justify-content: flex-start;
+  margin-left: 10px; 
 }
 
 .dash h1 {
-  font-size: 32px;
+  font-size: 24px; 
   font-weight: 600;
   color: var(--maroon);
 }

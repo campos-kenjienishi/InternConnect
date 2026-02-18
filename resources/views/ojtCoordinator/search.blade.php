@@ -18,7 +18,7 @@
                 <li>
                     <a href="#">
                         <img style="width: 55px; margin-left: 6px; padding-top: 30px;" src="/images/puplogo.png">
-                        <span class="toptitle">InternConnect</span>
+                        <span class="toptitle">Intern<br><br>Connect</span>
                     </a>
                 </li>
 
