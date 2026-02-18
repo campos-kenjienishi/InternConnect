@@ -1,3 +1,5 @@
+<?php
+
 if (!function_exists('generateVoucherCode')) {
     function generateVoucherCode($length = 8) {
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
