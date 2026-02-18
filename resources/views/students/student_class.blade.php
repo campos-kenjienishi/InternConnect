@@ -172,7 +172,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($class as $class)
+                            @foreach ($class as $cls)
                             @foreach($professor as $prof)
                             @foreach($prof->subjects as $subject) 
                             @foreach($sched as $schedule)

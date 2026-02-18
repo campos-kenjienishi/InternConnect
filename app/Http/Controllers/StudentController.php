@@ -86,58 +86,51 @@ class StudentController extends Controller
     }
 
     public function class()
-    {   
+{   
+    $sched = []; 
+    $class = [];
+    $professor = []; // ✅ IMPORTANT FIX
+    $course = Courses::all();
+    $announce = [];
+    $data = [];
 
-        $sched = []; 
-        $class = [];
-        $course=Courses::all();
-       
-        
-        $announce=[];
-        $data=array();
-            if(Session::has('loginId')){
+    if(Session::has('loginId')){
+        $data = User::where('id','=', Session::get('loginId'))->first();
+    }
 
-                $data=User::where('id','=', Session::get('loginId'))->first();
-            }
-                         
-            $class = [];
+    if (!empty($data) && isset($data->adviser_name)) {
 
-            // Check if $data is not empty before accessing the property
-            if (!empty($data) && isset($data->adviser_name)) {
-                $class = Classes::where('adviser_name', $data->adviser_name)
-                               ->where('course', $data->course)
-                               ->get();
+        $class = Classes::where('adviser_name', $data->adviser_name)
+                        ->where('course', $data->course)
+                        ->get();
 
-                $professor = Professor::where('full_name', $data->adviser_name)->with('subjects')->get();
+        $professor = Professor::where('full_name', $data->adviser_name)
+                              ->with('subjects')
+                              ->get();
 
-            // Iterate over each professor to retrieve subjects and related schedules
-            foreach ($professor as $prof) {
-                $subjectCodes = $prof->subjects->pluck('subject_code')->all();
+        foreach ($professor as $prof) {
+            $subjectCodes = $prof->subjects->pluck('subject_code')->all();
 
-                $sched = array_merge($sched, Schedule::whereIn('subject_code', $subjectCodes)
-                    ->whereIn('course', $class->pluck('course')->all())
-                    ->get()->all());
-            }
-            }
-       
-        //    $class = Classes::where('adviser_name', $data->adviser_name)->get();
-
-
-        if (!empty($data) && isset($data->status) && $data->status == 1) {
-            // User's status is 1, allow access to announcements
-            $announce = Announcements::where(function ($query) use ($data) {
-                $query->where('announcer', 'Gina Dela Cruz')
-                      ->orWhere('announcer', $data->adviser_name);
-            })->get();
-        } else {
-            $announce = []; // Initialize $announce as an empty array if user's status is not 1 or $data is empty
+            $sched = array_merge(
+                $sched,
+                Schedule::whereIn('subject_code', $subjectCodes)
+                        ->whereIn('course', $class->pluck('course')->all())
+                        ->get()
+                        ->all()
+            );
         }
-        
+    }
 
-    // Pass the $professor and $students variables to the view
-    return view('students.student_class', compact('data', 'course', 'class', 'professor','announce', 'sched'));
+    if (!empty($data) && isset($data->status) && $data->status == 1) {
 
+        $announce = Announcements::where(function ($query) use ($data) {
+            $query->where('announcer', 'Gina Dela Cruz')
+                  ->orWhere('announcer', $data->adviser_name);
+        })->get();
+    }
 
+    return view('students.student_class',
+        compact('data', 'course', 'class', 'professor', 'announce', 'sched'));
 }
 
 
